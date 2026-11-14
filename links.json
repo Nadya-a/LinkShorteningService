@@ -1,1 +1,20 @@
-[{"longLink":"https://lms.skillfactory.ru/xblock/block-v1:skillfactory+MIFIDEV-1sem+2026+type@vertical+block@89ff2b3f73b742c081c179d7b2392959?show_title\u003d0\u0026show_bookmark_button\u003d0\u0026recheck_access\u003d1\u0026view\u003dstudent_view\u0026format\u003dKey%20Project","shortLink":"3bfbglb2","limit":2,"expiryDate":"2026-11-17"},{"longLink":"https://habr.com/ru/companies/naumen/articles/228279/","shortLink":"leqs1f0l","limit":5,"expiryDate":"2026-11-17"}]
+[
+  {
+    "longLink": "https://lms.skillfactory.ru/xblock/block-v1:skillfactory+MIFIDEV-1sem+2026+type@vertical+block@89ff2b3f73b742c081c179d7b2392959?show_title\u003d0\u0026show_bookmark_button\u003d0\u0026recheck_access\u003d1\u0026view\u003dstudent_view\u0026format\u003dKey%20Project",
+    "shortLink": "3bfbglb2",
+    "limit": 2,
+    "expiryDate": "2026-11-17"
+  },
+  {
+    "longLink": "https://habr.com/ru/companies/naumen/articles/228279/",
+    "shortLink": "leqs1f0l",
+    "limit": 5,
+    "expiryDate": "2026-11-17"
+  },
+  {
+    "longLink": "https://habr.com/ru/companies/naumen/articles/228279/",
+    "shortLink": "3f5ribu7",
+    "limit": 7,
+    "expiryDate": "2026-11-17"
+  }
+]
