@@ -4,7 +4,11 @@ public class ShortLink {
     private String longLink;
     private String shortLink;
     private int limit;
-    private LocalDate expiryDate;
+    private String expiryDate; // храним как строку, так проще писать в JSON
+
+    // пустой конструктор для Gson
+    public ShortLink() {
+    }
 
     // Конструктор создания новой ссылки
     public ShortLink(String longLink, String limit) {
@@ -16,12 +20,22 @@ public class ShortLink {
     }
 
     // Конструктор для чтения из файла
-    public ShortLink(String longLink, String shortLink, String limit, LocalDate expiryDate) {
+    public ShortLink(String longLink, String shortLink, String limit, String expiryDate) {
         // Используем сеттеры, чтобы применить проверки сразу при создании
         setLongLink(longLink);
         setShortLink(shortLink);
         setLimit(limit);
         setExpiryDate(expiryDate);
+    }
+
+    @Override
+    public String toString() {
+        return "ShortLink{" +
+                "longLink='" + longLink + '\'' +
+                ", shortLink='" + shortLink + '\'' +
+                ", limit=" + limit +
+                ", expiryDate=" + expiryDate +
+                '}';
     }
 
     // Геттеры (чтение)
@@ -37,7 +51,7 @@ public class ShortLink {
         return limit;
     }
 
-    public LocalDate getExpiryDate() {
+    public String getExpiryDate() {
         return expiryDate;
     }
 
@@ -86,16 +100,12 @@ public class ShortLink {
 
     //создание новой ссылки
     private void setExpiryDate() {
-        LocalDate currentDate = LocalDate.now();
-        this.expiryDate = currentDate.plusDays(3);
+        this.expiryDate = LocalDate.now().plusDays(3).toString();
     }
 
     // для чтения ссылки из файла
-    public void setExpiryDate(LocalDate expirationDate) {
-        if (expirationDate == null) {
-            throw new IllegalArgumentException("Дата истечения не может быть null");
-        }
-        this.expiryDate = expirationDate;
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     //уменьшение лимита
@@ -116,6 +126,6 @@ public class ShortLink {
 
     //Проверка истечения даты. True если срок уже истек
     public boolean isExpired() {
-        return expiryDate.isBefore(LocalDate.now());
+        return LocalDate.parse(expiryDate).isBefore(LocalDate.now());
     }
 }
