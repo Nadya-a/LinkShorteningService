@@ -4,10 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Введите ссылку, которую нужно сократить: ");
-        String long_link = input.next();
+        String longLink = input.next();
 
-        ShortLinkGenerator shg = new ShortLinkGenerator();
-        String result = shg.shortLinkGeneration();
-        System.out.println(long_link + ": " + result);
+        System.out.print("Введите максимальное кол-во переходов по сокращенной ссылке: ");
+        String linkLimit = input.next();
+
+        ShortLink sh = new ShortLink(longLink, linkLimit);
+        //String result = shg.shortLinkGeneration();
+        //System.out.println(longLink + ": " + result);
     }
 }
