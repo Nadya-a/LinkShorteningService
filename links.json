@@ -37,5 +37,19 @@
     "shortLink": "clck.ru/er5mddqm",
     "limit": 1,
     "expiryDate": "2026-11-18"
+  },
+  {
+    "uuid": "5778366e-3ca0-41be-938d-7a74b19a5201",
+    "longLink": "укукку",
+    "shortLink": "clck.ru/hr3qkjnj",
+    "limit": 1,
+    "expiryDate": "2026-11-18"
+  },
+  {
+    "uuid": "5778366e-3ca0-41be-938d-7a74b19a5201",
+    "longLink": "about:blank",
+    "shortLink": "clck.ru/n2pur6ck",
+    "limit": 3,
+    "expiryDate": "2026-11-18"
   }
 ]
