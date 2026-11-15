@@ -59,20 +59,20 @@ public class LinkService {
         writer.close();
     }
 
-    // добавляем одну ссылку
-    public void addToFile(ShortLink shortLink) throws Exception {
+    // добавляем одну ссылку, true — добавилась, false — уже была
+    public boolean addToFile(ShortLink shortLink) throws Exception {
         List<ShortLink> links = readFromFile();
 
         for (ShortLink link : links) {
             if (link.getLongLink().equals(shortLink.getLongLink())
                     && link.getUuid() != null
                     && link.getUuid().equals(shortLink.getUuid())) {
-                System.out.println("Такая ссылка уже есть в файле!");
-                return;
+                return false;
             }
         }
 
         links.add(shortLink);
         saveToFile(links);
+        return true;
     }
 }

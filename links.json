@@ -16,5 +16,26 @@
     "shortLink": "3f5ribu7",
     "limit": 7,
     "expiryDate": "2026-11-17"
+  },
+  {
+    "uuid": "5778366e-3ca0-41be-938d-7a74b19a5201",
+    "longLink": "https://apps.skillfactory.ru/",
+    "shortLink": "clck.ru/7inhhsgk",
+    "limit": 5,
+    "expiryDate": "2026-11-18"
+  },
+  {
+    "uuid": "5778366e-3ca0-41be-938d-7a74b19a5201",
+    "longLink": "https://apps.skillfactory.ru/learning/course/course-v1:skillfactory+MIFIDEV-1sem+2026/block-v1:skillfactory+MIFIDEV-1sem+2026+type@sequential+block@c7bfbbcf9f574b9590d616cc3c3a9084/block-v1:skillfactory+MIFIDEV-1sem+2026+type@vertical+block@1a6833503d6c48888f3a58763f490acc",
+    "shortLink": "clck.ru/8j680oin",
+    "limit": 2,
+    "expiryDate": "2026-11-18"
+  },
+  {
+    "uuid": "5778366e-3ca0-41be-938d-7a74b19a5201",
+    "longLink": "clck.ru/8j680oin",
+    "shortLink": "clck.ru/er5mddqm",
+    "limit": 1,
+    "expiryDate": "2026-11-18"
   }
 ]

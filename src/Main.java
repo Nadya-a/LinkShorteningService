@@ -14,10 +14,15 @@ public class Main {
         String uuid = ls.getOrCreateUuid();
 
         ShortLink sh = new ShortLink(uuid, longLink, linkLimit);
-        //String result = shg.shortLinkGeneration();
-        System.out.println(longLink + ": " + sh);
-        ls.addToFile(sh);
+        //System.out.println(longLink + ": " + sh);
 
-        System.out.println(ls.readFromFile());
+        boolean added = ls.addToFile(sh);
+        if (added) {
+            System.out.println("Ссылка успешно добавлена! Короткая ссылка: " + sh.getShortLink());
+        } else {
+            System.out.println("Такая ссылка уже есть в файле!");
+        }
+
+        //System.out.println(ls.readFromFile());
     }
 }
