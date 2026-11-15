@@ -7,13 +7,8 @@ public class ShortLink {
     private int limit;
     private String expiryDate; //строку проще писать в JSON
 
-    // пустой конструктор для Gson
-    public ShortLink() {
-    }
-
     // Конструктор создания новой ссылки
     public ShortLink(String uuid, String longLink, String limit) {
-        // Используем сеттеры, чтобы применить проверки сразу при создании
         setUUID(uuid);
         setLongLink(longLink);
         setShortLink();
@@ -23,7 +18,6 @@ public class ShortLink {
 
     // Конструктор для чтения из файла
     public ShortLink(String uuid, String longLink, String shortLink, String limit, String expiryDate) {
-        // Используем сеттеры, чтобы применить проверки сразу при создании
         setUUID(uuid);
         setLongLink(longLink);
         setShortLink(shortLink);

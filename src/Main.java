@@ -1,7 +1,5 @@
 import java.awt.Desktop;
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -65,24 +63,13 @@ public class Main {
             return;
         }
 
-//        List<ShortLink> links = ls.readFromFile();
-//        for (ShortLink link : links) {
-//            if (link.getShortLink().equals(inputLink)) {
-//                // проверки isExpired / isLimitExhausted
-//                link.linkRedirection();
-//                ls.saveToFile(links);
-//                Desktop.getDesktop().browse(new URI(link.getLongLink()));
-//                return;
-//            }
-//        }
-
         checkLink(inputLink, found, ls);
     }
 
     public static void checkLink (String inputLink, ShortLink found, LinkService ls) throws Exception {
         List<ShortLink> links = ls.readFromFile();
 
-        if (found.isExpired()) {
+        if (!found.isExpired()) {
             System.out.println("Ссылка просрочена");
 
             //Удаление просроченной ссылки
@@ -109,11 +96,6 @@ public class Main {
                     return;
                 }
             }
-
-//            found.linkRedirection();
-//            //ls.saveToFile(found);
-//            System.out.println("Происходит редирект... ");
-//            Desktop.getDesktop().browse(new URI(found.getLongLink()));
         }
     }
 }
