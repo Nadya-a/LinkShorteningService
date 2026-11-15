@@ -80,14 +80,24 @@ public class Main {
     }
 
     public static void checkLink (String inputLink, ShortLink found, LinkService ls) throws Exception {
+        List<ShortLink> links = ls.readFromFile();
+
         if (found.isExpired()) {
             System.out.println("Ссылка просрочена");
+
+            //Удаление просроченной ссылки
+            for (int i = 0; i < links.size(); i++) {
+                if (links.get(i).getShortLink().equals(inputLink)) {
+                    links.remove(i);
+                    break;
+                }
+            }
+            ls.saveToFile(links);
         }
         else if (found.isLimitExhausted()) {
             System.out.println("Лимит переходов по ссылке истек");
         }
         else {
-            List<ShortLink> links = ls.readFromFile();
             for (ShortLink link : links) {
                 if (link.getShortLink().equals(inputLink)) {
                     // проверки isExpired / isLimitExhausted
