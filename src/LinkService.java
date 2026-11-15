@@ -8,10 +8,31 @@ import java.io.FileWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.UUID;
 
 public class LinkService {
     private String fileName = "links.json";
+    private String uuidFileName = "uuid.txt";
     private Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    // берём сохранённый uuid или создаём новый
+    public String getOrCreateUuid() throws Exception {
+        File file = new File(uuidFileName);
+
+        if (file.exists() && file.length() > 0) {
+            Scanner scanner = new Scanner(file);
+            String uuid = scanner.nextLine();
+            scanner.close();
+            return uuid;
+        }
+
+        String uuid = UUID.randomUUID().toString();
+        FileWriter writer = new FileWriter(uuidFileName);
+        writer.write(uuid);
+        writer.close();
+        return uuid;
+    }
 
     // читаем все ссылки из файла
     public List<ShortLink> readFromFile() throws Exception {
@@ -43,7 +64,9 @@ public class LinkService {
         List<ShortLink> links = readFromFile();
 
         for (ShortLink link : links) {
-            if (link.getLongLink().equals(shortLink.getLongLink())) {
+            if (link.getLongLink().equals(shortLink.getLongLink())
+                    && link.getUuid() != null
+                    && link.getUuid().equals(shortLink.getUuid())) {
                 System.out.println("Такая ссылка уже есть в файле!");
                 return;
             }

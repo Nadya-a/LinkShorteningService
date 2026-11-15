@@ -1,18 +1,20 @@
 import java.time.LocalDate;
 
 public class ShortLink {
+    private String uuid;
     private String longLink;
     private String shortLink;
     private int limit;
-    private String expiryDate; // храним как строку, так проще писать в JSON
+    private String expiryDate; //строку проще писать в JSON
 
     // пустой конструктор для Gson
     public ShortLink() {
     }
 
     // Конструктор создания новой ссылки
-    public ShortLink(String longLink, String limit) {
+    public ShortLink(String uuid, String longLink, String limit) {
         // Используем сеттеры, чтобы применить проверки сразу при создании
+        setUUID(uuid);
         setLongLink(longLink);
         setShortLink();
         setLimit(limit);
@@ -20,8 +22,9 @@ public class ShortLink {
     }
 
     // Конструктор для чтения из файла
-    public ShortLink(String longLink, String shortLink, String limit, String expiryDate) {
+    public ShortLink(String uuid, String longLink, String shortLink, String limit, String expiryDate) {
         // Используем сеттеры, чтобы применить проверки сразу при создании
+        setUUID(uuid);
         setLongLink(longLink);
         setShortLink(shortLink);
         setLimit(limit);
@@ -31,7 +34,8 @@ public class ShortLink {
     @Override
     public String toString() {
         return "ShortLink{" +
-                "longLink='" + longLink + '\'' +
+                "uuid='" + uuid + '\'' +
+                ", longLink='" + longLink + '\'' +
                 ", shortLink='" + shortLink + '\'' +
                 ", limit=" + limit +
                 ", expiryDate=" + expiryDate +
@@ -39,6 +43,10 @@ public class ShortLink {
     }
 
     // Геттеры (чтение)
+    public String getUuid () {
+        return uuid;
+    }
+
     public String getLongLink() {
         return longLink;
     }
@@ -56,6 +64,13 @@ public class ShortLink {
     }
 
     // Сеттеры (редактирование) с проверками
+    public void setUUID(String uuid) {
+        if (uuid == null || uuid.trim().isEmpty()) {
+            throw new IllegalArgumentException("Идентефикатор пользователя некорректен!");
+        }
+        this.uuid = uuid;
+    }
+
     public void setLongLink(String longLink) {
         if (longLink == null || longLink.trim().isEmpty()) {
             throw new IllegalArgumentException("Ошибка конвертации ссылки. Длинная ссылка не может быть пустой!");

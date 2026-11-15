@@ -11,7 +11,9 @@ public class Main {
         System.out.print("Введите максимальное кол-во переходов по сокращенной ссылке: ");
         String linkLimit = input.next();
 
-        ShortLink sh = new ShortLink(longLink, linkLimit);
+        String uuid = ls.getOrCreateUuid();
+
+        ShortLink sh = new ShortLink(uuid, longLink, linkLimit);
         //String result = shg.shortLinkGeneration();
         System.out.println(longLink + ": " + sh);
         ls.addToFile(sh);
