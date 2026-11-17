@@ -69,7 +69,7 @@ public class Main {
     public static void checkLink (String inputLink, ShortLink found, LinkService ls) throws Exception {
         List<ShortLink> links = ls.readFromFile();
 
-        if (!found.isExpired()) {
+        if (found.isExpired()) {
             System.out.println("Ссылка просрочена");
 
             //Удаление просроченной ссылки
